@@ -5,38 +5,38 @@
 */
 
 
-include <linux/module.h> 
+#include <linux/module.h> 
 
-include <linux/kernel.h>
+#include <linux/kernel.h>
 
-include <linux/init.h>
+#include <linux/init.h>
 
 
-static int __init iniciar(void)
+static int iniciar(void)
 {
- 	printk(KERNINFO "Que pasa tronco!\n");
+ 	printk(KERN_INFO "Que pasa tronco!\n");
         /*
          * Si no se devuelve 0 significa que initmodule ha fallado y no ha podido cargarse.
          */
         return 0;
 }
 
-static void __exit terminar(void)
+static void terminar(void)
 {
-        printk(KERNINFO "Me voy dando el piro!\n");
+        printk(KERN_INFO "Me voy dando el piro!\n");
 }
 
 
 /*
  * Indicamos cuales son las funciones de inicio y fin
  */
-moduleinit(iniciar);
-moduleexit(terminar);
+module_init(iniciar);
+module_exit(terminar);
 
 /*
  * Documentacion del modulo
  */
-MODULELICENSE("GPL");
-MODULEAUTHOR("Nery Galvez - 201403525");
-MODULEDESCRIPTION("Este modulo no vale para absolutamente nada");
-MODULESUPPORTEDDEVICE("eltiodelavara");
+MODULE_LICENSE("GPL");
+MODULE_AUTHOR("Nery Galvez - 201403525");
+MODULE_DESCRIPTION("Este modulo no vale para absolutamente nada");
+MODULE_SUPPORTED_DEVICE("eltiodelavara");
